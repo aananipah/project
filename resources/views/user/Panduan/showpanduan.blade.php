@@ -1,0 +1,52 @@
+@extends('layouts.base')
+
+@section('title', 'Pilih Panduan - Materi')
+
+@section('content')
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Pilih Panduan</h1>
+                    </div>
+                <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item">Home</li>
+                    <li class="breadcrumb-item">Materi</li>
+                    <li class="breadcrumb-item">Pilih Panduan</li>
+                </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content" >
+        <!-- Small boxes (Stat box) -->
+        @foreach ($panduans->chunk(4) as $panduan)
+        <div class="row">
+
+          <!-- Show List of panduans -->
+          @foreach($panduan as $p)
+            <div class="col-lg-3 col-6" >
+                <!-- small box -->
+                <div class="small-box bg-info">
+                <div class="inner">
+                    <h5>{{ $p->nama_panduan }}</h5>
+                    <br>
+                    <p style="line-height:0px;">{{ $user->user }}</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-address-book"></i>
+                </div>
+            </div>
+            <!-- ./col -->
+          @endforeach
+
+        </div>
+        @endforeach
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+@endsection
